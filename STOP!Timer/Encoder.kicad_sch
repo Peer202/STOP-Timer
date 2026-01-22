@@ -1,0 +1,558 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "d753bf3f-4937-445a-81fb-ae083e666305")
+	(paper "A4")
+	(lib_symbols
+		(symbol "PEC11R-4225F-S0012:PEC11R-4225F-S0012"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 21.59 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "PEC11R-4225F-S0012"
+				(at 21.59 12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "PEC11R4225FS0012"
+				(at 21.59 -87.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/pec11r.pdf?sfvrsn=bb617cbf_11"
+				(at 21.59 -187.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Rotary Encoder Mechanical 12 Quadrature (Incremental) Vertical"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "31.5"
+				(at 21.59 -387.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "652-PEC11R-4225F-S12"
+				(at 21.59 -487.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/PEC11R-4225F-S0012?qs=Zq5ylnUbLm4jMN%252BFiPmzDg%3D%3D"
+				(at 21.59 -587.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Bourns"
+				(at 21.59 -687.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "PEC11R-4225F-S0012"
+				(at 21.59 -787.3 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "PEC11R-4225F-S0012_1_1"
+				(rectangle
+					(start 5.08 10.16)
+					(end 20.32 -17.78)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 10.16 15.24 270)
+					(length 5.08)
+					(name "COM_"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 15.24 270)
+					(length 5.08)
+					(name "NO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "MH1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 0 180)
+					(length 5.08)
+					(name "MH2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -22.86 90)
+					(length 5.08)
+					(name "CHANNEL_A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 -22.86 90)
+					(length 5.08)
+					(name "CHANNEL_B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.7 -22.86 90)
+					(length 5.08)
+					(name "CHANNEL_C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "C1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(text "Stop Interval encoder\n"
+		(exclude_from_sim no)
+		(at 60.452 46.228 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3fd83768-3823-4bf8-9703-8c13a7df749a")
+	)
+	(text "Time Change Encoder"
+		(exclude_from_sim no)
+		(at 109.22 45.974 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "91c59d3e-1744-4af6-b02f-11af7a31a78d")
+	)
+	(symbol
+		(lib_id "PEC11R-4225F-S0012:PEC11R-4225F-S0012")
+		(at 97.79 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "aec5f583-433e-42d0-9724-d76f251f6d9c")
+		(property "Reference" "U2"
+			(at 130.81 60.9914 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PEC11R-4230F-S0024"
+			(at 130.81 63.5314 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "project_footprints:PEC11R4225FS0012"
+			(at 119.38 154.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/pec11r.pdf?sfvrsn=bb617cbf_11"
+			(at 119.38 254.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Rotary Encoder Mechanical 12 Quadrature (Incremental) Vertical"
+			(at 97.79 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "31.5"
+			(at 119.38 454.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "652-PEC11R-4225F-S12"
+			(at 119.38 554.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/PEC11R-4225F-S0012?qs=Zq5ylnUbLm4jMN%252BFiPmzDg%3D%3D"
+			(at 119.38 654.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Bourns"
+			(at 119.38 754.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "PEC11R-4225F-S0012"
+			(at 119.38 854.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "JLC" "    C7435302"
+			(at 97.79 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "9b0d41e5-b321-46e9-a33e-c093335f87b2")
+		)
+		(pin "3"
+			(uuid "76bedd24-86b2-4689-b790-1361f8432d65")
+		)
+		(pin "1"
+			(uuid "6c6e9e47-c2ad-4f14-a4a8-4da067191baf")
+		)
+		(pin "A1"
+			(uuid "545e7a62-30ea-4ca8-ab66-974b43a8a261")
+		)
+		(pin "C1"
+			(uuid "2a320acd-1d3c-45a5-ae18-626e2c5dc6e7")
+		)
+		(pin "B1"
+			(uuid "d4995f12-ffd8-4610-93a7-03bd609a5897")
+		)
+		(pin "2"
+			(uuid "ad7b22b7-f1cc-43d3-acfb-79707aef3649")
+		)
+		(instances
+			(project "STOP-Timer"
+				(path "/f7118eea-cf2d-4aa4-9e6e-b7551058ec7f/6769b726-fac9-4c1f-96bb-921ff2d90476"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PEC11R-4225F-S0012:PEC11R-4225F-S0012")
+		(at 48.26 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ffc87ba4-9f0e-4b49-984e-96e6bfe4de32")
+		(property "Reference" "U3"
+			(at 81.28 60.9914 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PEC11R-4230F-S0024"
+			(at 81.28 63.5314 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "project_footprints:PEC11R4225FS0012"
+			(at 69.85 154.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.bourns.com/docs/product-datasheets/pec11r.pdf?sfvrsn=bb617cbf_11"
+			(at 69.85 254.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Rotary Encoder Mechanical 12 Quadrature (Incremental) Vertical"
+			(at 48.26 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "31.5"
+			(at 69.85 454.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "652-PEC11R-4225F-S12"
+			(at 69.85 554.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/PEC11R-4225F-S0012?qs=Zq5ylnUbLm4jMN%252BFiPmzDg%3D%3D"
+			(at 69.85 654.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Bourns"
+			(at 69.85 754.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "PEC11R-4225F-S0012"
+			(at 69.85 854.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "JLC" "    C7435302"
+			(at 48.26 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "2b5431d5-9d25-49f7-941e-e9b3298fbda1")
+		)
+		(pin "3"
+			(uuid "7d285a7d-14ac-486e-abaa-11d04b7a68ad")
+		)
+		(pin "1"
+			(uuid "864849ef-694c-4b74-9dcc-b409f98d1a17")
+		)
+		(pin "A1"
+			(uuid "9c6bc8a9-e035-42a6-85f0-91233ae33c68")
+		)
+		(pin "C1"
+			(uuid "fd782ccd-3456-4d98-a723-42b79ff26929")
+		)
+		(pin "B1"
+			(uuid "97538b5e-c27d-48df-88f7-c3da9383ec76")
+		)
+		(pin "2"
+			(uuid "4dcef703-71f5-494e-b059-330a4c909c54")
+		)
+		(instances
+			(project "STOP-Timer"
+				(path "/f7118eea-cf2d-4aa4-9e6e-b7551058ec7f/6769b726-fac9-4c1f-96bb-921ff2d90476"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
