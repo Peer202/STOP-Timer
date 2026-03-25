@@ -576,6 +576,10 @@
     [
       "f7118eea-cf2d-4aa4-9e6e-b7551058ec7f",
       "Stammblatt"
+    ],
+    [
+      "6723c85b-b833-4796-bde7-6f21cd8fb48c",
+      "LCD_DRIVER"
     ]
   ],
   "text_variables": {}
