@@ -1,0 +1,20 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"_4, _3, _2, ",,4,,
+BZ1,Buzzer_12x9.5RM7.6,1,Buzzer,
+"D1, D2, D3",0805,3,LED,
+DS1,WC1602A,1,HY1602E,
+J1,NEUTRIK NMJ2HF-S,1,Foot Switch Jack,
+J2,PinHeader_1x04_P2.54mm_Vertical,1,Conn_01x04_Pin,
+J3,Jack_XLR_Neutrik_NC3MAAH-0_Horizontal,1,XLR3,
+J4,PinSocket_1x04_P2.54mm_Vertical,1,Conn_01x04_Pin,
+"MOUSE-BITE-3MM-SLOT_3, MOUSE-BITE-3MM-SLOT_2, MOUSE-BITE-3MM-SLOT",mouse-bite-3mm-slot,3,VAL**,
+"Q1, Q2",SOT-23,2,AO3401A,C15127
+"R1, R10",0805,2,4.7k,
+R6,0805,1,1k,
+R8,0805,1,R,
+RV1,Potentiometer_Bourns_3386P_Vertical,1, 20k,
+"SW1, SW2, SW3, SW4, SW6, SW7",SW_Cherry_MX_1.50u_PCB_3dmodel,6,SW_Push,C49234237
+SW8,SW_SPDT_PCM12,1,SW_SPDT,C221841
+U1,Raspberrypi pico2 w SMD,1,~,
+U2,EC11E18244AU,1,EC11E18244AU,
+U4,SSOP-20_4.4x6.5mm_P0.65mm,1,PCF8574,C57790

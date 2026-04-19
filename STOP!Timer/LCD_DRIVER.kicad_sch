@@ -2664,6 +2664,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLC" "C221841"
+			(at 233.68 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "b75a7561-a45f-4c45-abba-583b1ece7866")
 		)
