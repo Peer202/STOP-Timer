@@ -10,6 +10,7 @@ INDICATOR_TIME_2 = 19
 INDICATOR_TIME_3 = 17
 
 # PIN Definitions
+
 # INPUTS
 
 # OUTPUTS
@@ -22,8 +23,10 @@ times = [0,0,0]
 times_selected = 0
 
 
-i2c = I2C(0)
-d = i2c_lcd.Display(i2c)
+i2c = I2C(1,scl=Pin(27), sda=Pin(26))
+list = i2c.scan()
+print("Found I2C Adresses: " + str(list))
+d = i2c_lcd.Display(i2c,lcd_addr=list[0])
 
 # Clear the screen
 d.clear()
