@@ -2974,6 +2974,12 @@
 		)
 	)
 	(junction
+		(at 264.16 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "00b5043a-16b3-4f7d-8412-593979fbec92")
+	)
+	(junction
 		(at 264.16 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3032,10 +3038,6 @@
 		(uuid "508b3b50-88b4-4637-ab03-604394a257ee")
 	)
 	(no_connect
-		(at 246.38 132.08)
-		(uuid "52a28393-6910-4e4f-92ce-345f2ebd1bd0")
-	)
-	(no_connect
 		(at 246.38 99.06)
 		(uuid "567c6bb8-8e45-431d-af62-362bfdb4fee3")
 	)
@@ -3050,10 +3052,6 @@
 	(no_connect
 		(at 119.38 45.72)
 		(uuid "7c180417-4dac-4f93-9737-20886233874e")
-	)
-	(no_connect
-		(at 246.38 129.54)
-		(uuid "806c3f5c-5f54-419f-8fde-58336b966558")
 	)
 	(no_connect
 		(at 149.86 45.72)
@@ -3080,24 +3078,18 @@
 		(uuid "dd57016e-7364-4444-bf59-e1773099d1dd")
 	)
 	(no_connect
-		(at 246.38 139.7)
-		(uuid "e4c9cea7-7cc5-411c-b318-90e22ce654bd")
-	)
-	(no_connect
-		(at 246.38 137.16)
-		(uuid "edd4888d-f0fe-483e-b5bb-53bd9515433c")
-	)
-	(no_connect
-		(at 246.38 119.38)
-		(uuid "f44134cf-bca7-4e6c-b1c4-4f3acfacbbe0")
-	)
-	(no_connect
-		(at 246.38 114.3)
-		(uuid "f44d6e5c-1aa4-4fbf-8977-1949fe5ce778")
-	)
-	(no_connect
 		(at 198.12 93.98)
 		(uuid "fe92a241-009e-492c-8f42-3874a6c341fd")
+	)
+	(wire
+		(pts
+			(xy 246.38 129.54) (xy 248.92 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "013d0f22-84c6-42d4-a66e-75901b459179")
 	)
 	(wire
 		(pts
@@ -3241,6 +3233,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 119.38) (xy 248.92 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3854ed0c-9007-47e3-a241-2610693cde99")
+	)
+	(wire
+		(pts
 			(xy 270.51 109.22) (xy 246.38 109.22)
 		)
 		(stroke
@@ -3268,6 +3270,16 @@
 			(type default)
 		)
 		(uuid "4483888f-dee0-45fc-835f-ed11a0b7cbd4")
+	)
+	(wire
+		(pts
+			(xy 248.92 137.16) (xy 246.38 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4697252e-0333-47a1-aef1-aca5d60ae377")
 	)
 	(wire
 		(pts
@@ -3428,6 +3440,16 @@
 			(type default)
 		)
 		(uuid "7ba45f5f-19d9-4a62-9742-1695b529ac35")
+	)
+	(wire
+		(pts
+			(xy 246.38 114.3) (xy 248.92 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e31cc21-f693-47de-a237-17eb0d5c548e")
 	)
 	(wire
 		(pts
@@ -3681,6 +3703,16 @@
 	)
 	(wire
 		(pts
+			(xy 248.92 139.7) (xy 246.38 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3d7f232-8d93-45c2-a044-eb2c4a76b2f6")
+	)
+	(wire
+		(pts
 			(xy 134.62 33.02) (xy 134.62 21.59)
 		)
 		(stroke
@@ -3708,6 +3740,16 @@
 			(type default)
 		)
 		(uuid "c5b31df2-a612-4978-9eaf-af1bad2a1e2a")
+	)
+	(wire
+		(pts
+			(xy 246.38 132.08) (xy 248.92 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c818dcd5-a601-4071-b6d4-78aa6fafef6e")
 	)
 	(wire
 		(pts
@@ -3881,7 +3923,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 134.62) (xy 255.27 134.62)
+			(xy 246.38 134.62) (xy 264.16 134.62)
 		)
 		(stroke
 			(width 0)
@@ -3900,6 +3942,20 @@
 			(type none)
 		)
 		(uuid 06379b8b-773f-4a61-9c63-66aaff7197cd)
+	)
+	(rectangle
+		(start 246.38 113.03)
+		(end 261.62 142.24)
+		(stroke
+			(width 0)
+			(type default)
+			(color 255 0 24 1)
+		)
+		(fill
+			(type color)
+			(color 255 50 0 0.3)
+		)
+		(uuid 1198fdb9-8754-47ce-ab95-4d6b3de4aa6f)
 	)
 	(rectangle
 		(start 12.7 124.46)
@@ -4016,6 +4072,17 @@
 			)
 		)
 		(uuid "49b43f88-9a5f-4002-8747-0dffbdb73872")
+	)
+	(text "WORKAROUND\n"
+		(exclude_from_sim no)
+		(at 254 143.764 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 34 28 1)
+			)
+		)
+		(uuid "51e9a78e-be21-4d0f-bfd7-ed7dbe3c52fd")
 	)
 	(text "SPECIAL MODE SELECTION SWITCHES"
 		(exclude_from_sim no)
@@ -4170,6 +4237,28 @@
 			)
 		)
 	)
+	(global_label "LCD_RW"
+		(shape input)
+		(at 246.38 151.13 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2067eea0-2369-4487-92e7-680920e8d714")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 246.38 161.3723 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "ENCODER_SEL"
 		(shape input)
 		(at 198.12 104.14 180)
@@ -4236,6 +4325,28 @@
 			)
 		)
 	)
+	(global_label "LCD_RS"
+		(shape input)
+		(at 248.92 139.7 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2d70ac3e-6a14-47dd-ba63-6fd21db88097")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 258.9204 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "VCC"
 		(shape input)
 		(at 264.16 115.57 0)
@@ -4271,6 +4382,28 @@
 		(uuid "4195058a-c860-48a2-9a60-03e053dd0cf6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 132.08 16.4882 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LCD_DB7"
+		(shape input)
+		(at 248.92 114.3 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "427a98af-68af-4700-a4f2-65caf596d8dd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 260.1904 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4342,6 +4475,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LCD_DB4"
+		(shape input)
+		(at 248.92 132.08 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5a081531-2b78-49bd-8cfa-11e588f27efb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 260.1904 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -4522,6 +4677,28 @@
 			)
 		)
 	)
+	(global_label "LCD_DB5"
+		(shape input)
+		(at 248.92 129.54 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "96bed3ff-b77e-47c2-bce6-92f69de4100f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 260.1904 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "TIME_SEL_2"
 		(shape input)
 		(at 198.12 119.38 180)
@@ -4623,6 +4800,28 @@
 		(uuid "ab4f9c75-ee94-458b-b1cf-31b8f616074d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 266.9638 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LCD_DB6"
+		(shape input)
+		(at 248.92 119.38 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b48197e4-2f81-4e72-b52d-213bb2de58e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 260.1904 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4848,6 +5047,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "LCD_E"
+		(shape input)
+		(at 248.92 137.16 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "fdfd4c05-29ce-42e9-9c4b-96cf9f7d7191")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 257.5899 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -7286,72 +7507,6 @@
 			(project "STOP-Timer"
 				(path "/f7118eea-cf2d-4aa4-9e6e-b7551058ec7f"
 					(reference "#PWR011")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 255.27 134.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9313e84d-dbcc-45c9-91ed-417a0d14285f")
-		(property "Reference" "#PWR02"
-			(at 255.27 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 255.27 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 255.27 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 255.27 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 255.27 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f201055-58f0-4c1a-9358-397f563681f0")
-		)
-		(instances
-			(project "STOP-Timer"
-				(path "/f7118eea-cf2d-4aa4-9e6e-b7551058ec7f"
-					(reference "#PWR02")
 					(unit 1)
 				)
 			)
