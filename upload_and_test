@@ -1,0 +1,7 @@
+#!/bin/bash
+mpremote connect /dev/ttyACM0 \
+ cp -r Firmware/src/lcd1602 :  + \
+ cp -r Firmware/src/menu :  + \
+ ls : + \
+ soft-reset \
+ run Firmware/src/main.py

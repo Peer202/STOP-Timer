@@ -1,3 +1,5 @@
+# TODO
+#  Make Focus Functional
 class MenuPage ():
     def __init__(self):
         self.screens = [["GENERIC MENU OBJECT",""],["",""]]

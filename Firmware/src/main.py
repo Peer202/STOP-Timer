@@ -1,46 +1,117 @@
 #imports
 
 import time
-from machine import Pin, I2C
-from i2c_lcd import i2c_lcd
-
+import machine
+from machine import Pin
+from lcd1602 import LCD1602
+from menu.holder import MenuHolder
 #CONFIGS
-INDICATOR_TIME_1 = 20
-INDICATOR_TIME_2 = 19
-INDICATOR_TIME_3 = 17
+UPDATE_RATE = 2 # Hz
+DELAY_BETWEEN_FRAMES = 1/UPDATE_RATE #s
 
 # PIN Definitions
 
 # INPUTS
 
 # OUTPUTS
-PIN_INDICATOR_TIME_1 = Pin(19,Pin.OUT)
-PIN_INDICATOR_TIME_2 = Pin(18,Pin.OUT)
-PIN_INDICATOR_TIME_3 = Pin(17,Pin.OUT)
-# Code
+PIN_INDICATOR_TIME_1 = Pin(15,Pin.OUT)
+PIN_INDICATOR_TIME_2 = Pin(14,Pin.OUT)
+PIN_INDICATOR_TIME_3 = Pin(13,Pin.OUT)
+
+PIN_BACKLIGHT_ENABLE = Pin(27,Pin.OUT)
+
+PIN_SWITCH_START = Pin(7,Pin.IN,Pin.PULL_UP)
+PIN_SWITCH_MODE = Pin(6,Pin.IN,Pin.PULL_UP)
+PIN_SWITCH_VIEW = Pin(5,Pin.IN,Pin.PULL_UP)
+
+PIN_SWITCH_TIME_1 = Pin(8,Pin.IN,Pin.PULL_UP)
+PIN_SWITCH_TIME_2 = Pin(9,Pin.IN,Pin.PULL_UP)
+PIN_SWITCH_TIME_3 = Pin(10,Pin.IN,Pin.PULL_UP)
+
+PIN_SWITCH_ENCODER_SELECT = Pin(4,Pin.IN,Pin.PULL_UP)
+#PIN_SWITCH_ENCODER_A = 
+#PIN_SWITCH_ENCODER_B = 
+
+
+class HardwareInterface():
+    def __init__(self):
+        self.lcd = LCD1602.begin_4bit(rs=16, e=17, db_7_to_4=[26, 22, 19, 18])
+
+    def pass_menu(self,menu_object):
+        self.menu = menu_object
+
+    def on_for_sec(self,time):
+        self.switch_on()
+        time.delay(time)
+        self.switch_off()
+
+    def switch_on(self):
+        print("Enlarger On")
+    
+    def switch_off(self):
+        print("Enlarger off")
+
+    def print_to_disp(self,row,row_text):
+        self.lcd.write_text(0, row, row_text)
+
+    def clear_disp(self):
+        self.lcd.clear()    
+    
+    def on_increment(self,pin=None):
+        self.menu.on_increment()
+
+    def on_decrement(self,pin=None):
+        self.menu.on_decrement()
+
+    def on_select(self,pin=None):
+        self.menu.on_select()
+    
+    def on_start(self,pin=None):
+        self.menu.on_start()
+
+    def on_mode(self,pin=None):
+        self.menu.on_mode()
+
+    def on_view(self,pin=None):
+        self.menu.on_view()
+
+    def on_focus(self,pin=None):
+        self.menu.on_focus()
+
+    def on_time_select(self,pin):
+        if(pin == PIN_SWITCH_TIME_1):
+           t = 1
+        if(pin == PIN_SWITCH_TIME_2):
+           t = 2
+        if(pin == PIN_SWITCH_TIME_3):
+           t = 3
+        self.menu.on_time_select(t)
+    
+
 
 times = [0,0,0]
 times_selected = 0
+hardware = HardwareInterface()
+menu = MenuHolder(hardware_object=hardware,debug=True)
 
+# INPUT INTERRUPTS
 
-i2c = I2C(1,scl=Pin(27), sda=Pin(26))
-list = i2c.scan()
-print("Found I2C Adresses: " + str(list))
-d = i2c_lcd.Display(i2c,lcd_addr=list[0])
+PIN_SWITCH_START.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_start)
+PIN_SWITCH_MODE.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_mode)
+PIN_SWITCH_VIEW.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_view)
+PIN_SWITCH_ENCODER_SELECT.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_select)
 
-# Clear the screen
-d.clear()
-
-# Write "Hello World" to the screen
-d.write("Hello World")
-
+#PIN_BACKLIGHT_ENABLE.on()
 
 time.sleep(0.1) # Wait for USB to become ready
 
 print("Hello, Pi Pico W!")
-pinState = False
+
 while(True):
-    time.sleep(0.5)
-    for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
-        pin.value(pinState)
-    pinState = not pinState
+    #for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
+    #    pin.toggle()
+    #PIN_BACKLIGHT_ENABLE.toggle()
+    time.sleep(DELAY_BETWEEN_FRAMES)
+    menu.update_screen()
+
+

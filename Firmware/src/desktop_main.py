@@ -31,8 +31,18 @@ class SwitchObject():
     def switch_off(self):
         print("Enlarger off")
 
+
+class DisplayDriver():
+    def init(self):
+        pass
+
+    def print(self,row,row_text):
+        print(row)
+
 switch = SwitchObject
-menu = MenuHolder(switch_object=switch,debug=True)
+display = DisplayDriver
+menu = MenuHolder(switch_object=switch,display_object=display,debug=True)
+
 
 keyboard.add_hotkey('space',menu.on_start)
 keyboard.add_hotkey('m',menu.on_mode)

@@ -6,13 +6,14 @@ from menu.greeting import GreetingsPage
 class MenuHolder:
     # Main Menu Objects. Holds all Pages as Children and controls Program Flow
 
-    def __init__(self,switch_object,debug=False) -> None:
+    def __init__(self,hardware_object,debug=False) -> None:
         self.MenuPages = []
         
         self.CurPageIndex = 0
         self.debug = debug
 
-        self.switch = switch_object
+        self.hardware = hardware_object
+        self.hardware.pass_menu(self)
 
         self.add_menu_page(TestStripLinearPage(self))
 
@@ -22,8 +23,10 @@ class MenuHolder:
 
     def update_screen(self):
         # Called every X Seconds
-        for row in self.currentMenuPage.screens[self.screen_page_index]:
-            print(row)
+        self.hardware.clear_disp()
+        for i,row in enumerate(self.currentMenuPage.screens[self.screen_page_index]):
+            self.hardware.print_to_disp(i,row)
+
         if(self.screen_page_index == 0):
             self.screen_page_index = 1
         else:
