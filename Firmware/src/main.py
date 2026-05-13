@@ -13,13 +13,6 @@ DELAY_BETWEEN_FRAMES = 1/UPDATE_RATE #s
 
 # INPUTS
 
-# OUTPUTS
-PIN_INDICATOR_TIME_1 = Pin(15,Pin.OUT)
-PIN_INDICATOR_TIME_2 = Pin(14,Pin.OUT)
-PIN_INDICATOR_TIME_3 = Pin(13,Pin.OUT)
-
-PIN_BACKLIGHT_ENABLE = Pin(27,Pin.OUT)
-
 PIN_SWITCH_START = Pin(7,Pin.IN,Pin.PULL_UP)
 PIN_SWITCH_MODE = Pin(6,Pin.IN,Pin.PULL_UP)
 PIN_SWITCH_VIEW = Pin(5,Pin.IN,Pin.PULL_UP)
@@ -31,6 +24,15 @@ PIN_SWITCH_TIME_3 = Pin(10,Pin.IN,Pin.PULL_UP)
 PIN_SWITCH_ENCODER_SELECT = Pin(4,Pin.IN,Pin.PULL_UP)
 #PIN_SWITCH_ENCODER_A = 
 #PIN_SWITCH_ENCODER_B = 
+
+# OUTPUTS
+PIN_INDICATOR_TIME_1 = Pin(15,Pin.OUT)
+PIN_INDICATOR_TIME_2 = Pin(14,Pin.OUT)
+PIN_INDICATOR_TIME_3 = Pin(13,Pin.OUT)
+
+PIN_BACKLIGHT_ENABLE = Pin(27,Pin.OUT)
+
+PIN_ENLARGER = Pin(12,Pin.OUT)
 
 
 class HardwareInterface():
@@ -68,6 +70,9 @@ class HardwareInterface():
     
     def on_start(self,pin=None):
         self.menu.on_start()
+        self.enlarger_on()
+        time.sleep(3)
+        self.enlarger_off()
 
     def on_mode(self,pin=None):
         self.menu.on_mode()
@@ -87,6 +92,18 @@ class HardwareInterface():
            t = 3
         self.menu.on_time_select(t)
     
+    def enlarger_on(self):
+        PIN_ENLARGER.on()
+        self.toggle_all_leds()
+
+    def enlarger_off(self):
+        PIN_ENLARGER.off()
+        self.toggle_all_leds()
+
+    def toggle_all_leds(self):
+        for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
+            pin.toggle()
+    
 
 
 times = [0,0,0]
@@ -101,6 +118,9 @@ PIN_SWITCH_MODE.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_mode)
 PIN_SWITCH_VIEW.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_view)
 PIN_SWITCH_ENCODER_SELECT.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_select)
 
+for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
+    pin.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_time_select)
+
 #PIN_BACKLIGHT_ENABLE.on()
 
 time.sleep(0.1) # Wait for USB to become ready
@@ -108,8 +128,7 @@ time.sleep(0.1) # Wait for USB to become ready
 print("Hello, Pi Pico W!")
 
 while(True):
-    #for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
-    #    pin.toggle()
+    
     #PIN_BACKLIGHT_ENABLE.toggle()
     time.sleep(DELAY_BETWEEN_FRAMES)
     menu.update_screen()
