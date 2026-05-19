@@ -2,6 +2,7 @@
 mpremote connect port:rfc2217://localhost:4000 \
  cp Firmware/src/main.py :main.py + \
  cp -r Firmware/src/i2c_lcd :  + \
+
  ls : + \
  soft-reset \
  disconnect

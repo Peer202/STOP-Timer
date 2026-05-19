@@ -5,6 +5,7 @@ class GreetingsPage (MenuPage):
         self.screens = [
             ["STOP! Timer","V0.1 by P.P."],["STOP  Timer","V0.1 by P.P."]
             ]
+        self.page_handles_mode = False
         self.update_menu_screens()
     def update_menu_screens(self):
         pass

@@ -1,7 +1,9 @@
 #!/bin/bash
-mpremote connect /dev/ttyACM0 \
+mpremote \
  cp -r Firmware/src/lcd1602 :  + \
  cp -r Firmware/src/menu :  + \
+cp Firmware/src/rotary_irq_rp2.py : +\
+ cp Firmware/src/rotary.py : +\
  ls : + \
  soft-reset \
  run Firmware/src/main.py

@@ -3,7 +3,7 @@
 class MenuPage ():
     def __init__(self):
         self.screens = [["GENERIC MENU OBJECT",""],["",""]]
-    
+        self.page_handles_mode = False
     def update_menu_screens(self):
         pass        
     
