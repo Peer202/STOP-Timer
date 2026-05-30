@@ -1,5 +1,5 @@
 from menu.page import MenuPage
-
+import time
 # TODO
 # Add Countdown for safety Shutoff
 
@@ -26,6 +26,7 @@ class FocusPage(MenuPage):
         # Start Enlarger and Blink LEDs
         if(self.menu.hardware.enlarger_on):
             self.menu.hardware.switch_off()
+            self.menu.start_lockout_time = time.time()
         else:
             self.menu.hardware.switch_on()
 

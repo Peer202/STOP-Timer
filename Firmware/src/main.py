@@ -5,19 +5,20 @@ import machine
 from machine import Pin
 from lcd1602 import LCD1602
 from menu.holder import MenuHolder
+from menu.running import EnlargerRunningPage
 
 from rotary_irq_rp2 import RotaryIRQ
 #CONSTANTS
 UPDATE_RATE = 5 # Hz
 DELAY_BETWEEN_FRAMES = 1/UPDATE_RATE #s
-DEBOUNCE_DURATION = 500 #ms
-
+DEBOUNCE_DURATION = 1 #s
 
 # State Variables
 Command_queue = []
 times = [0,0,0]
 times_selected = 0
 encoder_last_value = 0
+isr_last_time = 0
 # PIN Definitions
 
 # INPUTS
@@ -28,7 +29,7 @@ PIN_SWITCH_VIEW = Pin(5,Pin.IN,Pin.PULL_UP)
 
 PIN_SWITCH_TIME_1 = Pin(8,Pin.IN,Pin.PULL_UP)
 PIN_SWITCH_TIME_2 = Pin(9,Pin.IN,Pin.PULL_UP)
-PIN_SWITCH_TIME_3 = Pin(10,Pin.IN,Pin.PULL_UP)
+#PIN_SWITCH_TIME_3 = Pin(10,Pin.IN,Pin.PULL_UP)
 
 PIN_SWITCH_ENCODER_SELECT = Pin(4,Pin.IN,Pin.PULL_UP)
 #PIN_SWITCH_ENCODER_A = Pin(2,Pin.IN,Pin.PULL_UP)
@@ -41,8 +42,9 @@ PIN_INDICATOR_TIME_3 = Pin(13,Pin.OUT)
 
 PIN_BACKLIGHT_ENABLE = Pin(27,Pin.OUT)
 
-PIN_ENLARGER = Pin(12,Pin.OUT)
+PIN_CTRL_POWER_ENABLE = Pin(12,Pin.OUT)
 
+LED_PINS = [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]
 
 class HardwareInterface():
     def __init__(self):
@@ -58,12 +60,14 @@ class HardwareInterface():
         self.switch_off()
 
     def switch_on(self):
-        print("Enlarger On")
+        #print("Enlarger On")
+        PIN_CTRL_POWER_ENABLE.on()
         self.enlarger_on = True
         self.toggle_all_leds()
     
     def switch_off(self):
-        print("Enlarger off")
+        #print("Enlarger off")
+        PIN_CTRL_POWER_ENABLE.off()
         self.enlarger_on = False
         self.toggle_all_leds()
 
@@ -75,27 +79,45 @@ class HardwareInterface():
 
     def on_time_select(self,pin):
         if(pin == PIN_SWITCH_TIME_1):
-           t = 1
+           t = 0
         if(pin == PIN_SWITCH_TIME_2):
-           t = 2
-        if(pin == PIN_SWITCH_TIME_3):
-           t = 3
+           t = 1
+        #if(pin == PIN_SWITCH_TIME_3):
+        #   t = 2
         self.menu.on_time_select(t)
 
     def toggle_all_leds(self):
-        for pin in [PIN_INDICATOR_TIME_1,PIN_INDICATOR_TIME_2,PIN_INDICATOR_TIME_3]:
+        for pin in LED_PINS:
             pin.toggle()
 
-def InputISR(pin):
-    Command_queue.append(pin)
+    def led_all_off(self):
+        for pin in LED_PINS:
+            pin.off()
 
+    def led_index_on(self,led_index):
+        LED_PINS[led_index].on()
+
+    def led_index_off(self,led_index):
+        LED_PINS[led_index].off()
+
+
+def InputISR(pin):
+    global isr_last_time
+    if(time.time() >= (isr_last_time + DEBOUNCE_DURATION)):
+        if(len(Command_queue)==0):
+            Command_queue.append(pin)
+            print("ISR PIN: " + str(pin))
+        isr_last_time = time.time()
+    
 def Execute_from_Queue():
     global Command_queue
     if(len(Command_queue)==0):
         return
+    
+    #state =  machine.disable_irq()
     irq_source = Command_queue[0]
 
-
+    #menu.debug_print(irq_source)
     if(irq_source == PIN_SWITCH_MODE):
         menu.on_mode()
 
@@ -108,6 +130,7 @@ def Execute_from_Queue():
         menu.on_start()
 
     Command_queue = []
+    #machine.enable_irq(state=state)
 
 def InputEncoder():
     global encoder_last_value
@@ -120,7 +143,8 @@ def InputEncoder():
         menu.on_decrement()
         #print("decrement")
     else:
-        print("Encoder intterupt, but Value has not changed")
+        #print("Encoder intterupt, but Value has not changed")
+        pass
     encoder_last_value = _curr_value
 
     
@@ -149,20 +173,28 @@ encoder.add_listener(InputEncoder)
 for pin in [PIN_SWITCH_START,PIN_SWITCH_MODE,PIN_SWITCH_VIEW,PIN_SWITCH_ENCODER_SELECT]:
     pin.irq(trigger=Pin.IRQ_FALLING, handler=InputISR)
 
-for pin in [PIN_SWITCH_TIME_1,PIN_SWITCH_TIME_2,PIN_SWITCH_TIME_3]:
+for pin in [PIN_SWITCH_TIME_1,PIN_SWITCH_TIME_2]: #,PIN_SWITCH_TIME_3]
     pin.irq(trigger=Pin.IRQ_FALLING, handler=hardware.on_time_select)
 
-#PIN_BACKLIGHT_ENABLE.on()
+PIN_CTRL_POWER_ENABLE.off()
+hardware.led_all_off()
+
+PIN_BACKLIGHT_ENABLE.on()
 
 time.sleep(0.1) # Wait for USB to become ready
 
-print("Hello, Pi Pico W!")
+
+#print("Hello, Pi Pico W!")
+
+#menu.force_new_menu_layer(EnlargerRunningPage(menu,10))
 
 while(True):
-    print(Command_queue)
+    #print(Command_queue)
     Execute_from_Queue()
     #PIN_BACKLIGHT_ENABLE.toggle()
     time.sleep(DELAY_BETWEEN_FRAMES)
+    #time.sleep(2)
+    #hardware.on_for_sec(5)
     menu.update_screen()
 
 

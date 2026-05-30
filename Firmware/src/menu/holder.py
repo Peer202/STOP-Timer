@@ -1,23 +1,29 @@
 # Imports
 from menu.page import MenuPage
-from Firmware.src.menu.teststriplinear import TestStripLinearPage
+from menu.teststriplinear import TestStripLinearPage
 from menu.greeting import GreetingsPage
 from menu.focus import FocusPage
+from menu.exposure import LinearPrintPage
+import time
 
 # CONSTANTS
 DISPLAY_RATIO = 3 # Show page 1 n times before showing Page Page 2 once
+START_LOCKOUT_TIME = 1 #s
 
 class MenuHolder:
     # Main Menu Objects. Holds all Pages as Children and controls Program Flow
 
     def __init__(self,hardware_object,debug=False) -> None:
         self.MenuPages = [
-            TestStripLinearPage(self)
+            TestStripLinearPage(self),
+            LinearPrintPage(self)
         ]
         self.CurPageIndex = 0
         self.debug = debug
         self.hardware = hardware_object
         self.hardware.pass_menu(self)
+
+        self.start_lockout_time = 0
 
         self.screen_page_index = 0
         self.screen_counter = 0
@@ -27,6 +33,8 @@ class MenuHolder:
     def update_screen(self):
         # Called every X Seconds
         self.hardware.clear_disp()
+        
+        self.Menu_layers[0].update_menu_screens()
         if(self.screen_counter <= DISPLAY_RATIO):
             _screen_page_index = 0
             self.screen_counter = self.screen_counter + 1
@@ -35,7 +43,7 @@ class MenuHolder:
             _screen_page_index = 1
             self.screen_counter = 0
 
-        print("Menu Layers: " + str(self.Menu_layers))
+        #print("Menu Layers: " + str(self.Menu_layers))
         for i,row in enumerate(self.Menu_layers[0].screens[_screen_page_index]):
             self.hardware.print_to_disp(i,row)
 
@@ -73,35 +81,38 @@ class MenuHolder:
 
     def on_increment(self):
         self.Menu_layers[0].on_increment()
-        print("on_increment")
+        self.debug_print("on_increment")
 
     def on_decrement(self):
         self.Menu_layers[0].on_decrement()
-        print("on_decrement")
+        self.debug_print("on_decrement")
 
     def on_select(self):
         self.Menu_layers[0].on_select()
-        print("on_select")
+        self.debug_print("on_select")
     
     def on_start(self):
-        self.Menu_layers[0].on_start()
-        print("on_start")
+        if((self.start_lockout_time + START_LOCKOUT_TIME) >= time.time() ):
+            print("ON Start before Lockout Counter elapsed")
+        else:
+            self.Menu_layers[0].on_start()
+            self.debug_print("on_start")
 
     def on_mode(self):
         self.Menu_layers[0].on_mode()
         if(not self.Menu_layers[0].page_handles_mode):
             self.next_menu_page()
-        print("on_mode")
+        self.debug_print("on_mode")
 
     def on_view(self):
-        self.Menu_layers[0].on_view()
-        print("on_view")
+        focuspageobject = FocusPage(self)
+        self.force_new_menu_layer(focuspageobject)
+        self.debug_print("on_focus")
 
     def on_focus(self):
         #self.Menu_layers[0].on_focus()
-        self.force_new_menu_layer(FocusPage)
-        print("on_focus")
+        pass
 
     def on_time_select(self,time_selected):
-        print("time_selected: " + str(time_selected))
--
+        self.debug_print("time_selected: " + str(time_selected))
+        self.Menu_layers[0].on_time_select(time_selected)

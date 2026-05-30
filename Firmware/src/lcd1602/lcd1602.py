@@ -311,7 +311,7 @@ class LCD1602:
                 # if we have exceeded the expected fixed delay for the command.
                 # If so, we print an error and break the loop.
                 if abs(time.ticks_diff(busy_flag_check_started_at, time.ticks_ms())) >= exec_delay:
-                    print("LCD ERROR! Cannot read busy flag.")
+                    #print("LCD ERROR! Cannot read busy flag.")
                     break
         else:
             # Bus does not support reading. Using fixed delay
