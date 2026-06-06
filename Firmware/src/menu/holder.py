@@ -1,9 +1,12 @@
 # Imports
 from menu.page import MenuPage
 from menu.teststriplinear import TestStripLinearPage
+from menu.teststripfstop import TestStripFStopPage
+
 from menu.greeting import GreetingsPage
 from menu.focus import FocusPage
 from menu.exposure import LinearPrintPage
+
 import time
 
 # CONSTANTS
@@ -16,7 +19,8 @@ class MenuHolder:
     def __init__(self,hardware_object,debug=False) -> None:
         self.MenuPages = [
             TestStripLinearPage(self),
-            LinearPrintPage(self)
+            LinearPrintPage(self),
+            TestStripFStopPage(self)
         ]
         self.CurPageIndex = 0
         self.debug = debug
